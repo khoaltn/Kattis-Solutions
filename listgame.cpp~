@@ -1,0 +1,82 @@
+//
+//  listgame.cpp
+//
+//  A short algorithm to find the prime factorization of a positive integer
+//
+//  Created by Khoa Le Tue Nguyen on 7/9/15.
+//  Copyright (c) 2015 Khoa Nguyen. All rights reserved.
+//
+
+#include <iostream>
+#include <list>
+#include <vector>
+
+using namespace std;
+
+// Check if an integer is prime or not
+bool isPrime(int curr, const vector<int>& primes);
+
+// Populate a vector<int> with prime numbers
+void createPrimeList(vector<int>& primes, double limit);
+
+// Find the primes that are the sum of a sequence of consecutive primes and print them out
+void findPrimeFactors(vector<int>& primes, long input, vector<int>& factors);
+
+int main(int argc, const char * argv[]) {
+    long input;
+	cin >> input;
+    vector<int> primes;
+    createPrimeList(primes, input / 2 + 1);
+    
+	vector<int> factors;
+	findPrimeFactors(primes, input, factors);
+    
+	cout << factors.size() << endl;
+    return 0;
+}
+
+//
+// Check if an integer is prime or not
+//
+bool isPrime(int curr, const vector<int>& primes) {
+    for (int i = 0; i < primes.size(); i++) {
+        if (curr % primes.at(i) == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+//
+// Populate a vector<int> with prime numbers
+//
+void createPrimeList(vector<int>& primes, double limit) {
+    primes.push_back(2);
+    
+    int curr = 3;
+    int index = 1;
+    while (curr < limit) {
+        if (isPrime(curr, primes)) {
+            primes.push_back(curr);
+            index++;
+        }
+        
+        curr++;
+    }
+}
+
+//
+// Find the primes that are the sum of a sequence of consecutive primes and print them out
+//
+void findPrimeFactors(vector<int>& primes, long input, vector<int>& factors) {
+	int i = 0;
+	while (input > 1) {
+		if (input % primes[i] == 0) {
+			input = input / primes[i];
+			factors.push_back(primes[i]);
+			
+			i = 0;
+		}
+		i++;
+	}
+}

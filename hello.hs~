@@ -1,0 +1,5 @@
+GHCi, version 7.10.2: http://www.haskell.org/ghc/  :? for help
+Prelude> ./hello
+
+<interactive>:2:1: parse error on input ‘./’
+Prelude> 

@@ -1,0 +1,14 @@
+/*
+Written by Khoa Nguyen
+November 2015.
+Problem Aaah at https://open.kattis.com/problems/aaah
+ */
+
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	
+}

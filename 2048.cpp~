@@ -1,0 +1,14 @@
+/*
+  Written by Khoa Nguyen. November 2015.
+
+  Solving problem 2048 on Kattis.com
+
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+	
+}
